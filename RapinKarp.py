@@ -1,5 +1,5 @@
 def search(pattern, text, prime):
-    ALPHABET_SIZE = 256 # number of characters in input alphabet
+    ALPHABET_SIZE = 256  # number of characters in input alphabet
     pattern_length = len(pattern)
     text_length = len(text)
     i = 0
@@ -9,7 +9,7 @@ def search(pattern, text, prime):
     hash_multiplier = 1
 
     # Calculate hash multiplier as pow(ALPHABET_SIZE, pattern_length-1) % prime
-    for i in range(pattern_length-1):
+    for i in range(pattern_length - 1):
         hash_multiplier = (hash_multiplier * ALPHABET_SIZE) % prime
 
     # Calculate the hash value of pattern and first window of text
@@ -33,10 +33,12 @@ def search(pattern, text, prime):
 
         # Calculate hash value for next window of text: Remove leading digit, add trailing digit
         if i < text_length - pattern_length:
-            text_hash = (ALPHABET_SIZE * (text_hash - ord(text[i]) * hash_multiplier) + ord(text[i + pattern_length])) % prime
+            text_hash = (ALPHABET_SIZE * (text_hash - ord(text[i]) * hash_multiplier) + ord(
+                text[i + pattern_length])) % prime
             # We might get negative values of text_hash, converting it to positive
             if text_hash < 0:
                 text_hash += prime
+
 
 def RapinKarpSearch(pattern, text):
     search(pattern=pattern, text=text, prime=101)
