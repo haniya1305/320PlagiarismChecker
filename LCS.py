@@ -15,3 +15,4 @@ def longest_common_subsequence(seq1, seq2, len1, len2):
 
     # lcs_array[len1][len2] contains the length of LCS of seq1[0..len1-1] and seq2[0..len2-1]
     return lcs_array[len1][len2]
+#%%
